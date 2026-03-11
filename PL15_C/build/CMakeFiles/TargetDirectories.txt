@@ -1,0 +1,5 @@
+/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build/CMakeFiles/Gui_With_Player.dir
+/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build/CMakeFiles/debug.dir
+/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build/CMakeFiles/release.dir
+/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build/CMakeFiles/edit_cache.dir
+/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build/CMakeFiles/rebuild_cache.dir

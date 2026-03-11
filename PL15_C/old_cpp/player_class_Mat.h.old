@@ -1,0 +1,197 @@
+
+#pragma once
+
+#include <filesystem>
+#include <opencv2/opencv.hpp>
+#include "measure2.h"
+#include "image_processor.h"
+
+using namespace std;
+using namespace cv;
+namespace fs = std::filesystem;
+
+// enum Player_Param_Index
+// {
+//   GAIN = 0,
+//   BLACK_LEVEL = 1,
+//   COLOR_GAIN = 2,
+//   COLOR_HUE = 3,
+//   IMAGE_GAMMA = 4,
+//   H_SHIFT = 5,
+//   H_ROTATE = 0,
+//   SPEED = 6,
+//   FILTER_TYPE = 7,
+//   PAUSE_TOGGLE = 8,
+//   FAST_FORWARD = 9,
+//   REWIND = 10
+// };
+
+//   enum Default_Limits_Index
+//   {
+//     DEFAULT = 0,
+//     LOWER_LIMIT = 1,
+//     UPPER_LIMIT = 2,
+//   };
+
+
+class Video_Player_With_Processing
+{
+private:
+
+  ImageProcessor Player_Proc;  // <-- stateful processor (buffer reuse)
+
+
+  // inline void Grab_Frame_From_File(UMat &ImageOut, const int &Frame_Interp_Type);
+  inline void Grab_Frame_From_File_Mat(Mat &ImageOut, const int &Frame_Interp_Type);
+
+  //   inline void Shift_Horizontal_Location(UMat &Image_In_Out, int &Initial_Location);
+  //   inline void Shift_Horizontal_Location(const UMat &Image_In, UMat &Image_Shifted, int &Initial_Location);
+
+  inline void Shift_Horizontal_Location_Mat(Mat &Image_In_Out, int &Initial_Location);
+  inline void Shift_Horizontal_Location_Mat(const Mat &Image_In, Mat &Image_Shifted, int &Initial_Location);
+
+  // inline void RGB_Gamma_Correction(UMat &src, const int &Gamma_Correction);
+  // inline void RGB_Hue_Saturation_Correction(const UMat &src, const int &Color_Gain_In, const int &Angle_In);
+
+  inline void MultiFilter_Mat(cv::Mat &Image, const int &FilterTypeIn);
+  inline void GaussFilter_Mat(cv::Mat &Image, const int &FilterTypeIn);
+
+  uint32_t capWidth;
+  uint32_t capHeight;
+  uint32_t capLength;
+
+  bool Scale_Video;
+
+  // general terminology: _F is float _U is UMAt _FU is both
+
+  // UMat ImageInUnscaled_U;
+  // UMat ImageIn_U;
+  // UMat ImageInNew_U;
+  // UMat ImageInOld_U;
+  // UMat ImageShifted_U;
+  // UMat ImageTemp_U;
+
+  Mat ImageInUnscaled_M;
+  Mat ImageIn_M;
+  Mat ImageInNew_M;
+  Mat ImageInOld_M;
+  Mat ImageShifted_M;
+  Mat Image_M;
+
+  Mat Temp_Read_Movie;
+
+  // For Hue Saturation Corrections
+  // UMat BGR_Separate[3];
+  // UMat Y_RG_Partial_FU1;
+  // UMat Y_From_RGB_FU1;
+  // UMat RY_From_Scratch_FU1;
+  // UMat BY_From_Scratch_FU1;
+  // UMat RY_New_FU1;
+  // UMat BY_New_FU1;
+  // UMat GY_New_FU1;
+  // UMat BGR_Sep_FU[3];
+  // Mat BGR_Sep_F[3];
+  // Mat BGR_Corrected_F;
+  // UMat BGR_Corrected_FU;
+
+  UMat Ones_FU;
+
+  Mat Ones_FM;
+
+  // For Gamma Correction
+  UMat Image_squared;
+
+  bool Check_File_Type;
+
+  inline static const vector<int> Player_Params_Defaults{
+      100, // GAIN
+      0,   // BLACK_LEVEL
+      100, // COLOR_GAIN
+      0,   // COLOR_HUE
+      25,  // IMAGE_GAMMA
+      512, // H_SHIFT
+      100, // SPEED
+      3,   // FILTER_TYPE
+
+      0, // PAUSE_TOGGLE
+      0, // FAST_FORWARD
+      0  // REWIND
+  };
+
+  inline static const vector<vector<int>>
+      Player_Default_Limits{
+          {100, -100, 200}, // GAIN
+          {0, -100, 100},   // BLACK_LEVEL
+          {100, 0, 200},    // COLOR_GAIN
+          {0, -180, 180},   // COLOR_HUE
+          {25, 0, 100},     // IMAGE_GAMMA
+          {512, 0, 1023},   // H_SHIFT
+          {100, 0, 300},    // SPEED
+          {3, 0, 10},       // FILTER_TYPE
+          {0, 0, 1},        // PAUSE_TOGGLE
+          {0, 0, 1},        // FAST_FORWARD
+          {0, 0, 1}         // REWIND
+
+      };
+
+public:
+  // move back to private
+  VideoCapture capMain;
+
+  Video_Player_With_Processing(void);
+
+  
+
+  std::string Open_Image_File_Mat(const string &Image_File_Name_In, const string &Name_In);
+
+  void Close_Image_File(void);
+
+  std::string Check_Image_File(const string &Image_File_Name_In, const string &Name_In);
+
+  string Last_Good_Filename;
+
+  vector<int> Player_Params;
+
+  string display_name;
+
+  string Default_Main_Movie_Path;
+
+  string Default_Movie_With_Path;
+
+  // void Process(bool select = true);
+  bool Process(bool select = true);
+
+  bool Process_New_Frame(bool select = true);
+
+  void Process_New_Frame_Ext_Process(void);
+
+  void FusedNonSpatialPass(void);
+
+  void FusedNonSpatialPass_Mat(void);
+
+  // inline void Grab_Frame_From_File_Print(cv::UMat &ImageOut, const int &Frame_Interp_Type);
+
+  UMat ImageMain_FU;
+  Mat VideoDisplay;
+
+  Mat ImageMain_FM;
+
+  bool player_pause;
+
+
+
+  void Change_Param(const int &Param_Index, const std::string Value);
+  void Change_Param(const int &Param_Index, const int Value);
+  void Change_All_Params(std::vector<int> Value);
+
+  int Frame_Interp_Type;
+
+  int Location_Accum;
+  int Current_Frame;
+  int Location_Diff;
+
+  bool display_on;
+
+  // for program optimizing
+  Prog_Durations Time_Delay[10];
+};

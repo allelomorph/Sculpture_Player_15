@@ -1,0 +1,50 @@
+[
+{
+  "directory": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build",
+  "command": "/usr/bin/g++  -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/rapidjson/include -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/include -isystem /usr/local/include/opencv4 -O3 -DNDEBUG -std=c++20 -O3 -fopenmp -o CMakeFiles/Gui_With_Player.dir/main.cpp.o -c /home/hallucination/Desktop/QT_Tests/PL15/PL15_C/main.cpp",
+  "file": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/main.cpp",
+  "output": "CMakeFiles/Gui_With_Player.dir/main.cpp.o"
+},
+{
+  "directory": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build",
+  "command": "/usr/bin/g++  -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/rapidjson/include -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/include -isystem /usr/local/include/opencv4 -O3 -DNDEBUG -std=c++20 -O3 -fopenmp -o CMakeFiles/Gui_With_Player.dir/kv_io.cpp.o -c /home/hallucination/Desktop/QT_Tests/PL15/PL15_C/kv_io.cpp",
+  "file": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/kv_io.cpp",
+  "output": "CMakeFiles/Gui_With_Player.dir/kv_io.cpp.o"
+},
+{
+  "directory": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build",
+  "command": "/usr/bin/g++  -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/rapidjson/include -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/include -isystem /usr/local/include/opencv4 -O3 -DNDEBUG -std=c++20 -O3 -fopenmp -o CMakeFiles/Gui_With_Player.dir/function_misc.cpp.o -c /home/hallucination/Desktop/QT_Tests/PL15/PL15_C/function_misc.cpp",
+  "file": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/function_misc.cpp",
+  "output": "CMakeFiles/Gui_With_Player.dir/function_misc.cpp.o"
+},
+{
+  "directory": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build",
+  "command": "/usr/bin/g++  -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/rapidjson/include -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/include -isystem /usr/local/include/opencv4 -O3 -DNDEBUG -std=c++20 -O3 -fopenmp -o CMakeFiles/Gui_With_Player.dir/fs_utils.cpp.o -c /home/hallucination/Desktop/QT_Tests/PL15/PL15_C/fs_utils.cpp",
+  "file": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/fs_utils.cpp",
+  "output": "CMakeFiles/Gui_With_Player.dir/fs_utils.cpp.o"
+},
+{
+  "directory": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build",
+  "command": "/usr/bin/g++  -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/rapidjson/include -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/include -isystem /usr/local/include/opencv4 -O3 -DNDEBUG -std=c++20 -O3 -fopenmp -o CMakeFiles/Gui_With_Player.dir/player_class_Mat.cpp.o -c /home/hallucination/Desktop/QT_Tests/PL15/PL15_C/player_class_Mat.cpp",
+  "file": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/player_class_Mat.cpp",
+  "output": "CMakeFiles/Gui_With_Player.dir/player_class_Mat.cpp.o"
+},
+{
+  "directory": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build",
+  "command": "/usr/bin/g++  -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/rapidjson/include -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/include -isystem /usr/local/include/opencv4 -O3 -DNDEBUG -std=c++20 -O3 -fopenmp -o CMakeFiles/Gui_With_Player.dir/image_processor.cpp.o -c /home/hallucination/Desktop/QT_Tests/PL15/PL15_C/image_processor.cpp",
+  "file": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/image_processor.cpp",
+  "output": "CMakeFiles/Gui_With_Player.dir/image_processor.cpp.o"
+},
+{
+  "directory": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build",
+  "command": "/usr/bin/g++  -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/rapidjson/include -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/include -isystem /usr/local/include/opencv4 -O3 -DNDEBUG -std=c++20 -O3 -fopenmp -o CMakeFiles/Gui_With_Player.dir/measure2.cpp.o -c /home/hallucination/Desktop/QT_Tests/PL15/PL15_C/measure2.cpp",
+  "file": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/measure2.cpp",
+  "output": "CMakeFiles/Gui_With_Player.dir/measure2.cpp.o"
+},
+{
+  "directory": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/build",
+  "command": "/usr/bin/g++  -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/rapidjson/include -I/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/include -isystem /usr/local/include/opencv4 -O3 -DNDEBUG -std=c++20 -O3 -fopenmp -o CMakeFiles/Gui_With_Player.dir/sculpture.cpp.o -c /home/hallucination/Desktop/QT_Tests/PL15/PL15_C/sculpture.cpp",
+  "file": "/home/hallucination/Desktop/QT_Tests/PL15/PL15_C/sculpture.cpp",
+  "output": "CMakeFiles/Gui_With_Player.dir/sculpture.cpp.o"
+}
+]

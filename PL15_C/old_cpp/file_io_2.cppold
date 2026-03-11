@@ -1,0 +1,128 @@
+#include <filesystem>
+#include <iostream>
+#include <fstream>
+#include <algorithm>
+
+#include "fs_utils.h"
+
+
+using namespace std;
+namespace fs = std::filesystem;
+
+
+
+// trim from left
+inline std::string &ltrim(std::string &s, const char *t = " \"\t\n\r\f\v{}[]")
+{
+	s.erase(0, s.find_first_not_of(t));
+	return s;
+}
+
+// trim from right
+inline std::string &rtrim(std::string &s, const char *t = " \"\t\n\r\f\v{}[]")
+{
+	s.erase(s.find_last_not_of(t) + 1);
+	return s;
+}
+
+// trim from left & right
+inline std::string &trim(std::string &s, const char *t = " \"\t\n\r\f\v{}[]")
+{
+	s.erase(0, s.find_first_not_of(t));
+	s.erase(s.find_last_not_of(t) + 1);
+	return s;
+}
+
+// copying versions
+
+inline std::string ltrim_copy(std::string s, const char *t = " \"\t\n\r\f\v{}[]")
+{
+	return ltrim(s, t);
+}
+
+inline std::string rtrim_copy(std::string s, const char *t = " \"\t\n\r\f\v{}[]")
+{
+	return rtrim(s, t);
+}
+
+inline std::string trim_copy(std::string s, const char *t = " \"\t\n\r\f\v{}[]")
+{
+	return trim(s, t);
+}
+
+int isComma(char c)
+{
+	return (c == ',');
+}
+
+// turns string "[3,4,5]"  into a 1D string vector {3,4,5}
+vector<string> Vectorize_Text_Array(std::string Test_Array) // with or without brackets
+{
+	Test_Array.erase(remove(Test_Array.begin(), Test_Array.end(), '['), Test_Array.end());
+	Test_Array.erase(remove(Test_Array.begin(), Test_Array.end(), ']'), Test_Array.end());
+	Test_Array.erase(remove(Test_Array.begin(), Test_Array.end(), ' '), Test_Array.end());
+	vector<string> result;
+	stringstream s_stream(Test_Array); //create string stream from the string
+	while (s_stream.good())
+	{
+		string substr;
+		getline(s_stream, substr, ','); //get first string delimited by comma
+		result.push_back(substr);
+	}
+	return result;
+}
+
+
+
+Path_Parsed Parse_Filname_Path(const string &Full_Path_In)
+{
+	Path_Parsed Path;
+	Path.errors = -1;
+	Path.Path_Only = "";
+	Path.Filename = "";
+	Path.Filename_No_Ext = "";
+	Path.Ext = "";
+
+	if (Full_Path_In == "")
+	{
+		return Path;
+	}
+	else if (Full_Path_In.find_last_of("/\\") == -1)
+		return Path;
+	else
+	{
+		int loc_slash = Full_Path_In.find_last_of("/\\"); // + 1);
+		int loc_dot = Full_Path_In.find_last_of(".");	  // + 1);
+
+		Path.Path_Only = Full_Path_In.substr(0, loc_slash + 1);
+		Path.Filename = Full_Path_In.substr(loc_slash + 1);
+		Path.Filename_No_Ext = Path.Filename.substr(0, Path.Filename.find_last_of("."));
+		Path.Ext = Full_Path_In.substr(loc_dot + 1);
+		Path.errors = 0;
+		return Path;
+	}
+}
+
+std::string Find_File(const std::string &initial_path, const std::string &filename)
+{
+    namespace fs = std::filesystem;
+    if (!(fs::exists(initial_path) && fs::is_directory(initial_path))) return "";
+
+    for (const auto &p : fs::recursive_directory_iterator(initial_path)) {
+        if (!p.is_regular_file()) continue;
+        if (p.path().filename().string() == filename)
+            return p.path().string();
+    }
+    return "";
+}
+
+
+
+// helper: check if line starts with '#'
+inline bool is_full_line_comment(const std::string &s) {
+    auto i = s.find_first_not_of(" \t\r");
+    return (i != std::string::npos && s[i] == '#');
+}
+
+
+

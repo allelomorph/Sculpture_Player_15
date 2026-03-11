@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>A_Preview_Small</class>
+ <widget class="QWidget" name="A_Preview_Small">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>440</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>A Preview</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>8</number>
+   </property>
+   <property name="leftMargin">
+    <number>10</number>
+   </property>
+   <property name="topMargin">
+    <number>10</number>
+   </property>
+   <property name="rightMargin">
+    <number>10</number>
+   </property>
+   <property name="bottomMargin">
+    <number>10</number>
+   </property>
+
+   <!-- Label width reduced to ~2/3 of previous (was 110, now 70) -->
+
+   <!-- Row: Gain -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Gain">
+     <item>
+      <widget class="QLabel" name="Gain_Label">
+       <property name="minimumSize"><size><width>70</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>70</width><height>16777215</height></size></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+       <property name="text"><string>Gain</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="Gain_Value">
+       <property name="minimumSize"><size><width>40</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>40</width><height>16777215</height></size></property>
+       <property name="text"><string>0</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Gain">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>-100</number></property>
+       <property name="maximum"><number>200</number></property>
+       <property name="value"><number>100</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Row: Black_Level -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Black_Level">
+     <item>
+      <widget class="QLabel" name="Black_Level_Label">
+       <property name="minimumSize"><size><width>70</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>70</width><height>16777215</height></size></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+       <property name="text"><string>Black</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="Black_Level_Value">
+       <property name="minimumSize"><size><width>40</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>40</width><height>16777215</height></size></property>
+       <property name="text"><string>0</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Black_Level">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>-100</number></property>
+       <property name="maximum"><number>100</number></property>
+       <property name="value"><number>0</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Row: Color_Gain -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Color_Gain">
+     <item>
+      <widget class="QLabel" name="Color_Gain_Label">
+       <property name="minimumSize"><size><width>70</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>70</width><height>16777215</height></size></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+       <property name="text"><string>Color</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="Color_Gain_Value">
+       <property name="minimumSize"><size><width>40</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>40</width><height>16777215</height></size></property>
+       <property name="text"><string>100</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Color_Gain">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>0</number></property>
+       <property name="maximum"><number>200</number></property>
+       <property name="value"><number>100</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Row: Color_Hue -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Color_Hue">
+     <item>
+      <widget class="QLabel" name="Color_Hue_Label">
+       <property name="minimumSize"><size><width>70</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>70</width><height>16777215</height></size></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+       <property name="text"><string>Hue</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="Color_Hue_Value">
+       <property name="minimumSize"><size><width>40</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>40</width><height>16777215</height></size></property>
+       <property name="text"><string>0</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Color_Hue">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>-180</number></property>
+       <property name="maximum"><number>180</number></property>
+       <property name="value"><number>0</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Row: Speed -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Speed">
+     <item>
+      <widget class="QLabel" name="Speed_Label">
+       <property name="minimumSize"><size><width>70</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>70</width><height>16777215</height></size></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+       <property name="text"><string>Speed</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="Speed_Value">
+       <property name="minimumSize"><size><width>40</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>40</width><height>16777215</height></size></property>
+       <property name="text"><string>100</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Speed">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>0</number></property>
+       <property name="maximum"><number>200</number></property>
+       <property name="value"><number>100</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Row: Image_Gamma -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Image_Gamma">
+     <item>
+      <widget class="QLabel" name="Image_Gamma_Label">
+       <property name="minimumSize"><size><width>70</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>70</width><height>16777215</height></size></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+       <property name="text"><string>Gamma</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="Image_Gamma_Value">
+       <property name="minimumSize"><size><width>40</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>40</width><height>16777215</height></size></property>
+       <property name="text"><string>50</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Image_Gamma">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>0</number></property>
+       <property name="maximum"><number>100</number></property>
+       <property name="value"><number>50</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Row: H_Shift -->
+   <item>
+    <layout class="QHBoxLayout" name="row_H_Shift">
+     <item>
+      <widget class="QLabel" name="H_Shift_Label">
+       <property name="minimumSize"><size><width>70</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>70</width><height>16777215</height></size></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+       <property name="text"><string>H Shift</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="H_Shift_Value">
+       <property name="minimumSize"><size><width>40</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>40</width><height>16777215</height></size></property>
+       <property name="text"><string>512</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="H_Shift">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>0</number></property>
+       <property name="maximum"><number>1023</number></property>
+       <property name="value"><number>512</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Row: Filter_Type -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Filter_Type">
+     <item>
+      <widget class="QLabel" name="Filter_Type_Label">
+       <property name="minimumSize"><size><width>70</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>70</width><height>16777215</height></size></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+       <property name="text"><string>Filter</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="Filter_Type_Value">
+       <property name="minimumSize"><size><width>40</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>40</width><height>16777215</height></size></property>
+       <property name="text"><string>3</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Filter_Type">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>0</number></property>
+       <property name="maximum"><number>7</number></property>
+       <property name="value"><number>3</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Row: Rotate (added under Filter, before buttons) -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Rotate">
+     <item>
+      <widget class="QLabel" name="Rotate_Label">
+       <property name="minimumSize"><size><width>70</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>70</width><height>16777215</height></size></property>
+       <property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property>
+       <property name="text"><string>Rotate</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="Rotate_Value">
+       <property name="minimumSize"><size><width>40</width><height>0</height></size></property>
+       <property name="maximumSize"><size><width>40</width><height>16777215</height></size></property>
+       <property name="text"><string>0</string></property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="Rotate">
+       <property name="orientation"><enum>Qt::Horizontal</enum></property>
+       <property name="minimum"><number>-100</number></property>
+       <property name="maximum"><number>100</number></property>
+       <property name="value"><number>0</number></property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+   <!-- Row: Transport Controls -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Transport">
+     <property name="spacing"><number>12</number></property>
+     <item>
+      <widget class="QPushButton" name="Rewind">
+       <property name="text"><string>⏪</string></property>
+       <property name="checkable"><bool>false</bool></property>
+       <property name="autoRepeat"><bool>true</bool></property>
+       <property name="autoRepeatDelay"><number>300</number></property>
+       <property name="autoRepeatInterval"><number>100</number></property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed"/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Pause_Toggle">
+       <property name="text"><string>⏯</string></property>
+       <property name="checkable"><bool>true</bool></property>
+       <property name="checked"><bool>false</bool></property>
+       <property name="styleSheet">
+        <string notr="true">
+         QPushButton:checked {
+             background-color: red;
+         }
+        </string>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed"/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="Fast_Forward">
+       <property name="text"><string>⏩</string></property>
+       <property name="checkable"><bool>false</bool></property>
+       <property name="autoRepeat"><bool>true</bool></property>
+       <property name="autoRepeatDelay"><number>300</number></property>
+       <property name="autoRepeatInterval"><number>100</number></property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed"/>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   
+   <!-- Row: Status Label -->
+   <item>
+    <layout class="QHBoxLayout" name="row_Status">
+     <item>
+      <widget class="QLabel" name="Status_Label">
+       <property name="minimumSize">
+        <size><width>300</width><height>0</height></size>
+       </property>
+       <property name="maximumSize">
+        <size><width>16777215</width><height>16777215</height></size>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignRight|Qt::AlignVCenter</set>
+       </property>
+       <property name="text">
+        <string>Location: 00000   Duration: 00000</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
+
