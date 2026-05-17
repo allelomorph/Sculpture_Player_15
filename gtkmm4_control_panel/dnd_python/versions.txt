@@ -1,0 +1,7 @@
+version 0 is just the window with drag and drop
+
+version 1 add a printout of the changes
+
+version 2 communicates with the c program
+    NOTE THAT THE GUI HAS TO START FIRST
+    ALSO THIS ONE IS BI-DIRECTIONAL
